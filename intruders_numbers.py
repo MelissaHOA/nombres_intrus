@@ -17,27 +17,33 @@ le programme doit être composé des versions successives suivantes :
 def intruders_nbr():
 
     user_number_list = []
+    count_intruders = 0
+    intruders_list = []
+    number_positif_list = []
+
 
     while True :
         try:
 
             user_number = int(input("Trouvez l'intrus : Veuillez saisir un nombre entier : "))
 
-            # if user_number != 0:
-            #     user_number_list.append(user_number)
-            #
-            # else:
-            #     print(user_number_list)
-            #     break
-            #
-            # if user_number < 0:
-            #     print("Un intrus a été détecté : ", user_number)
+            # Stock les nombres
+            if user_number != 0:
+                user_number_list.append(user_number)
 
-            if user_number == 0:
-                break
-            elif user_number < 0:
-                print("Un intrus a été détecté : ", user_number)
+                # Stock les nombres
+                if user_number > 0:
+                    number_positif_list.append(user_number)
 
+                # Stock les nombres et compte
+                elif user_number < 0:
+                    count_intruders = count_intruders + 1
+                    intruders_list.append(user_number)
+
+            else:
+                print(f"Le nombre d'intrus détecté est de : {count_intruders} , voici la liste : {intruders_list}")
+                print(f"Les nombres sans intrus sont :  {number_positif_list}")
+                print(f"Tous les nombres saisi sont :  {user_number_list}")
 
 
 
@@ -48,3 +54,13 @@ def intruders_nbr():
             print("La valeur saisie n'est pas valide")
 
 intruders_nbr()
+
+
+"""
+2.
+afficher à l’utilisateur le premier nombre intrus détecté ;
+            # if user_number == 0:
+            #     break
+            # elif user_number < 0:
+            #     print("Un intrus a été détecté : ", user_number)
+"""
