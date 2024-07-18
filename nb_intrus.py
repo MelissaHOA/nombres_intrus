@@ -18,7 +18,7 @@ def intruders_numbers():
 
     while True:
         try:
-            number_list = str(input("Veuillez saisir une liste de nombre entier séparé d'un espace. Ou saisir 0 pour terminer : "))
+            number_list = str(input("Trouvez l'intrus : Veuillez saisir une liste de nombre entier séparé d'un espace. Ou saisir 0 pour terminer : "))
 
             if number_list == "0":
                 print("Fin du programme. Merci ! ")
