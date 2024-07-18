@@ -16,13 +16,29 @@ le programme doit être composé des versions successives suivantes :
 
 def intruders_nbr():
 
+    user_number_list = []
+
     while True :
         try:
 
             user_number = int(input("Trouvez l'intrus : Veuillez saisir un nombre entier : "))
 
-            if user_number == 0 :
-               break
+            # if user_number != 0:
+            #     user_number_list.append(user_number)
+            #
+            # else:
+            #     print(user_number_list)
+            #     break
+            #
+            # if user_number < 0:
+            #     print("Un intrus a été détecté : ", user_number)
+
+            if user_number == 0:
+                break
+            elif user_number < 0:
+                print("Un intrus a été détecté : ", user_number)
+
+
 
 
 
