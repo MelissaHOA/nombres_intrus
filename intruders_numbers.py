@@ -3,14 +3,8 @@
 
 # Exercice 1.a : à la recherche du nombre intrus
 # Écrire un programme qui détecte dans une liste contenant des nombres entiers
-# non nuls des intrus qui sont des nombres négatifs ;
-# le programme doit être composé des versions successives suivantes :
-
-
-"""
-    1. Demander à l’utilisateur chaque nombre constituant la liste ; par convention, 
-    la saisie de 0 indique que la saisie de la liste est terminée
-"""
+# non nuls des intrus qui sont des nombres négatifs
+#
 
 
 def intruders_nbr():
@@ -18,6 +12,17 @@ def intruders_nbr():
     count_intruders = 0
     intruders_list = []
     number_positif_list = []
+
+    """Demande à l'utilisateur de saisir un entier et de trouver l'intrus.
+    
+        :param user-number : message d'invite à la saisie
+        :param user_number_list : liste de tous les nombres saisi
+        :param number_positif_list : liste de tous les nombres positifs saisis
+        :param intruders_list : Liste de tous les intrus saisis
+        :param count_intruders : compteurs des intrus
+        :return: les détails saisis
+        
+    """
 
     while True:
         try:
@@ -51,12 +56,3 @@ def intruders_nbr():
 
 intruders_nbr()
 
-
-"""
-2.
-afficher à l’utilisateur le premier nombre intrus détecté ;
-            # if user_number == 0:
-            #     break
-            # elif user_number < 0:
-            #     print("Un intrus a été détecté : ", user_number)
-"""
