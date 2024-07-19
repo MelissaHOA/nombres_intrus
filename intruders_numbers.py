@@ -23,7 +23,8 @@ def input_list_numbers():
     return user_number_list
 
 
-def detect_numbers_intruder(user_number_list):
+# def detect_numbers_intruder(user_number_list):
+def filter_positive_numbers(user_number_list):
     """Fonction pour détecter et afficher les intrus, et retourner la liste sans intrus."""
     count_intruders = 0
     intruders_list = []
@@ -36,12 +37,12 @@ def detect_numbers_intruder(user_number_list):
             count_intruders += 1
             intruders_list.append(user_number)
 
-    if count_intruders == 0:
-        print(f"Vous n'avez pas trouvé d'intrus. Voici les nombres saisi : {user_number_list}")
-    else:
-        print(f"Le nombre d'intrus détecté est de : {count_intruders} , voici la liste : {intruders_list}")
-    print(f"Les nombres sans intrus sont : {number_positif_list}")
-    print(f"Tous les nombres saisi sont : {user_number_list}")
+    # if count_intruders == 0:
+    #     print(f"Vous n'avez pas trouvé d'intrus. Voici les nombres saisi : {user_number_list}")
+    # else:
+        # print(f"Le nombre d'intrus détecté est de : {count_intruders} , voici la liste : {intruders_list}")
+    # print(f"Les nombres sans intrus sont : {number_positif_list}")
+    # print(f"Tous les nombres saisi sont : {user_number_list}")
 
     return number_positif_list
 
@@ -49,7 +50,8 @@ def detect_numbers_intruder(user_number_list):
 def main():
     """ Jeux trouver l'intrus : fonction principal  """
     user_number_list = input_list_numbers()
-    detect_numbers_intruder(user_number_list)
+    # detect_numbers_intruder(user_number_list)
+    filter_positive_numbers(user_number_list)
 
 
 if __name__ == "__main__":
