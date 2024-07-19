@@ -10,7 +10,7 @@
 #
 
 def input_list_numbers():
-    """Fonction pour saisir la liste de nombres entiers de départ."""
+    """Fonction pour saisir une liste de nombres entiers de départ, (0 pour terminer) """
     user_number_list = []
 
     while True:
@@ -18,7 +18,7 @@ def input_list_numbers():
             user_number = int(input("Trouvez l'intrus : Veuillez saisir un nombre entier : (0 pour terminer) : "))
             if user_number == 0:
                 break
-            user_number_list.append(input_list_numbers)
+            user_number_list.append(user_number_list)
 
         except ValueError:
             print("La valeur saisie n'est pas valide. Veuillez saisir un nombre entier. ")
@@ -50,6 +50,29 @@ def detect_numbers_intruder(user_number_list):
         print(f"Tous les nombres saisi sont :  {user_number_list}")
 
     return number_positif_list
+
+
+def game_find_intruder():
+    """ Jeux trouver l'intrus : fonction principal  """
+    user_number_list = input_list_numbers()
+    detect_numbers_intruder(user_number_list)
+
+
+if __name__ == "__game_find_intruder__":
+    game_find_intruder()
+
+
+# AUTRE VERSION AIDE A LA COMPREHENSION de cette dernière fonction
+# def main():
+#     """ Jeux trouver l'intrus : fonction principal  """
+#     user_number_list = input_list_numbers()
+#     detect_numbers_intruder(user_number_list)
+#
+#
+# if __name__ == "__main__":
+#     main()
+
+
 
 
 
