@@ -12,33 +12,27 @@
 def input_list_numbers():
     """Fonction pour saisir une liste de nombres entiers de départ, (0 pour terminer) """
     user_number_list = []
-
     while True:
         try:
             user_number = int(input("Trouvez l'intrus : Veuillez saisir un nombre entier : (0 pour terminer) : "))
             if user_number == 0:
                 break
-            user_number_list.append(user_number_list)
-
+            user_number_list.append(user_number)
         except ValueError:
             print("La valeur saisie n'est pas valide. Veuillez saisir un nombre entier. ")
-
     return user_number_list
 
 
 def detect_numbers_intruder(user_number_list):
     """Fonction pour détecter et afficher les intrus, et retourner la liste sans intrus."""
-
     count_intruders = 0
     intruders_list = []
     number_positif_list = []
 
     for user_number in user_number_list:
-
         if user_number > 0:
             number_positif_list.append(user_number)
-
-        if user_number < 0:
+        elif user_number < 0:
             count_intruders += 1
             intruders_list.append(user_number)
 
@@ -46,57 +40,33 @@ def detect_numbers_intruder(user_number_list):
         print(f"Vous n'avez pas trouvé d'intrus. Voici les nombres saisi : {user_number_list}")
     else:
         print(f"Le nombre d'intrus détecté est de : {count_intruders} , voici la liste : {intruders_list}")
-        print(f"Les nombres sans intrus sont :  {number_positif_list}")
-        print(f"Tous les nombres saisi sont :  {user_number_list}")
+    print(f"Les nombres sans intrus sont : {number_positif_list}")
+    print(f"Tous les nombres saisi sont : {user_number_list}")
 
     return number_positif_list
 
 
-def game_find_intruder():
+def main():
     """ Jeux trouver l'intrus : fonction principal  """
     user_number_list = input_list_numbers()
     detect_numbers_intruder(user_number_list)
 
 
-if __name__ == "__game_find_intruder__":
-    game_find_intruder()
+if __name__ == "__main__":
+    main()
 
-
-# AUTRE VERSION AIDE A LA COMPREHENSION de cette dernière fonction
-# def main():
+# def game_find_intruder():
 #     """ Jeux trouver l'intrus : fonction principal  """
 #     user_number_list = input_list_numbers()
 #     detect_numbers_intruder(user_number_list)
 #
 #
 # if __name__ == "__main__":
-#     main()
-
-
-
-
-
-# def intruders_nbr():
+#     game_find_intruder()
 #
-#     while True:
-#         try:
-#             # Stock tous les nombres saisis
-#             if user_number != 0:
-#                 user_number_list.append(user_number)
 #
-#             else:
-#                 if count_intruders == 0:
-#                     print(f"Vous n'avez pas trouvé d'intrus. Voici les nombres saisi : {user_number_list}")
-#                 else:
-#                     print(f"Le nombre d'intrus détecté est de : {count_intruders} , voici la liste : {intruders_list}")
-#                     print(f"Les nombres sans intrus sont :  {number_positif_list}")
-#                     print(f"Tous les nombres saisi sont :  {user_number_list}")
+# ______________________________________________
 #
-#         except ValueError:
-#             print("La valeur saisie n'est pas valide")
-
-
-# intruders_nbr()
 
 #
 # def intruders_nbr():
@@ -118,7 +88,6 @@ if __name__ == "__game_find_intruder__":
 #
 #     while True:
 #         try:
-#
 #             user_number = int(input("Trouvez l'intrus : Veuillez saisir un nombre entier : "))
 #
 #             # Stock les nombres
@@ -136,11 +105,12 @@ if __name__ == "__game_find_intruder__":
 #
 #             else:
 #                 if count_intruders == 0:
-#                     print(f"Vous n'avez pas trouvé d'intrus. Voici les nombres saisi : {user_number_list}")
+#                     print(f"Vous n'avez pas trouvé d'intrus. Voici les nombres saisis : {user_number_list}")
 #                 else:
-#                     print(f"Le nombre d'intrus détecté est de : {count_intruders} , voici la liste : {intruders_list}")
-#                     print(f"Les nombres sans intrus sont :  {number_positif_list}")
-#                     print(f"Tous les nombres saisi sont :  {user_number_list}")
+#                     print(f"Le nombre d'intrus détecté est de : {count_intruders},
+#                     voici la liste : {intruders_list}")
+#                     print(f"Les nombres sans intrus sont : {number_positif_list}")
+#                     print(f"Tous les nombres saisi sont : {user_number_list}")
 #
 #         except ValueError:
 #             print("La valeur saisie n'est pas valide")
