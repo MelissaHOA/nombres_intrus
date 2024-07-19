@@ -15,61 +15,71 @@ def input_list_numbers():
     while True:
         try:
             user_number = int(input("Trouvez l'intrus : Veuillez saisir un nombre entier : (0 pour terminer) : "))
+
             if user_number == 0:
                 break
             user_number_list.append(user_number)
+
         except ValueError:
             print("La valeur saisie n'est pas valide. Veuillez saisir un nombre entier. ")
+
     return user_number_list
 
 
-# def detect_numbers_intruder(user_number_list):
 def filter_positive_numbers(user_number_list):
-    """Fonction pour détecter et afficher les intrus, et retourner la liste sans intrus."""
-    count_intruders = 0
-    intruders_list = []
+    """Fonction pour détecter les positifs."""
     number_positif_list = []
 
     for user_number in user_number_list:
+
         if user_number > 0:
             number_positif_list.append(user_number)
-        elif user_number < 0:
-            count_intruders += 1
-            intruders_list.append(user_number)
-
-    # if count_intruders == 0:
-    #     print(f"Vous n'avez pas trouvé d'intrus. Voici les nombres saisi : {user_number_list}")
-    # else:
-        # print(f"Le nombre d'intrus détecté est de : {count_intruders} , voici la liste : {intruders_list}")
-    # print(f"Les nombres sans intrus sont : {number_positif_list}")
-    # print(f"Tous les nombres saisi sont : {user_number_list}")
 
     return number_positif_list
 
 
-def main():
+def difference_list(user_number_list):
+    """Fonction pour détecter les nombres intrus."""
+
+    intruders_list = []
+    count_intruders = 0
+
+    for user_number in user_number_list:
+
+        if user_number < 0:
+            count_intruders += 1
+            intruders_list.append(user_number)
+
+    return intruders_list, count_intruders
+
+
+def game_find_intruder():
     """ Jeux trouver l'intrus : fonction principal  """
     user_number_list = input_list_numbers()
-    # detect_numbers_intruder(user_number_list)
-    filter_positive_numbers(user_number_list)
+    number_positif_list = filter_positive_numbers(user_number_list)
+    intruders_list, count_intruders = difference_list(user_number_list)
+
+    if count_intruders == 0:
+        print(f"Vous n'avez pas trouvé d'intrus.")
+
+    elif len(number_positif_list) == 0:
+        print(f"{count_intruders} : Nombre d'intrus détecté ! Voici les intrus détecté : {intruders_list}")
+
+    else:
+        print(f"{count_intruders} : Nombre d'intrus détecté ! Voici les intrus détecté : {intruders_list}")
+        print(f"Les nombres sans intrus sont : {number_positif_list}")
+        print(f"Tous les nombres saisi sont : {user_number_list}")
 
 
 if __name__ == "__main__":
-    main()
+    game_find_intruder()
 
-# def game_find_intruder():
-#     """ Jeux trouver l'intrus : fonction principal  """
-#     user_number_list = input_list_numbers()
-#     detect_numbers_intruder(user_number_list)
-#
-#
-# if __name__ == "__main__":
-#     game_find_intruder()
-#
-#
-# ______________________________________________
-#
 
+
+# _____________________________________________________________________________
+#
+#  EXO DE BASE AVANT AJOUT DE TOUTES LES FONCTIONS
+#
 #
 # def intruders_nbr():
 #     user_number_list = []
