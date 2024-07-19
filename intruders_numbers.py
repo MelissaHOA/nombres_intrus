@@ -12,33 +12,45 @@
 def input_list_numbers():
     """Fonction pour saisir la liste de nombres entiers de départ."""
     user_number_list = []
+
     while True:
         try:
             user_number = int(input("Trouvez l'intrus : Veuillez saisir un nombre entier : (0 pour terminer) : "))
             if user_number == 0:
                 break
-            user_number_list.append(user_number)
+            user_number_list.append(input_list_numbers)
 
         except ValueError:
             print("La valeur saisie n'est pas valide. Veuillez saisir un nombre entier. ")
+
     return user_number_list
-#
-# def detect_numbers_intruder():
-#     count_intruders = 0
-#     intruders_list = []
-#     number_positif_list = []
-#
-#     # Stock et compte les nombres négatifs
-#     if user_number < 0:
-#         count_intruders += 1
-#         intruders_list.append(user_number)
-#
-#     # Stock les nombres positifs
-#     if user_number > 0:
-#         number_positif_list.append(user_number)
-#
-#
-#
+
+
+def detect_numbers_intruder(user_number_list):
+    """Fonction pour détecter et afficher les intrus, et retourner la liste sans intrus."""
+
+    count_intruders = 0
+    intruders_list = []
+    number_positif_list = []
+
+    for user_number in user_number_list:
+
+        if user_number > 0:
+            number_positif_list.append(user_number)
+
+        if user_number < 0:
+            count_intruders += 1
+            intruders_list.append(user_number)
+
+    if count_intruders == 0:
+        print(f"Vous n'avez pas trouvé d'intrus. Voici les nombres saisi : {user_number_list}")
+    else:
+        print(f"Le nombre d'intrus détecté est de : {count_intruders} , voici la liste : {intruders_list}")
+        print(f"Les nombres sans intrus sont :  {number_positif_list}")
+        print(f"Tous les nombres saisi sont :  {user_number_list}")
+
+    return number_positif_list
+
 
 
 # def intruders_nbr():
@@ -63,7 +75,7 @@ def input_list_numbers():
 
 # intruders_nbr()
 
-
+#
 # def intruders_nbr():
 #     user_number_list = []
 #     count_intruders = 0
@@ -112,4 +124,3 @@ def input_list_numbers():
 #
 #
 # intruders_nbr()
-
